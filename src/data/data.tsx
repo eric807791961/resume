@@ -8,6 +8,7 @@ import {
   SparklesIcon,
 } from '@heroicons/react/24/outline';
 
+import React from 'react';
 import GithubIcon from '../components/Icon/GithubIcon';
 import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
@@ -27,6 +28,8 @@ import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
 import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
 import profilepic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
+
+
 import {
   About,
   ContactSection,
@@ -64,6 +67,8 @@ export const SectionId = {
 
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
 
+
+
 /**
  * Hero section
  */
@@ -72,16 +77,26 @@ export const heroData: Hero = {
   name: `I'm Tim Baker.`,
   description: (
     <>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I'm a Victoria based <strong className="text-stone-100">Full Stack Software Engineer</strong>, currently working
-        at <strong className="text-stone-100">Instant Domains</strong> helping build a modern, mobile-first, domain
-        registrar and site builder.
-      </p>
-      <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        In my free time time, you can catch me training in <strong className="text-stone-100">Muay Thai</strong>,
-        plucking my <strong className="text-stone-100">banjo</strong>, or exploring beautiful{' '}
-        <strong className="text-stone-100">Vancouver Island</strong>.
-      </p>
+      <div className="container">
+        <div className="donut-container">
+          {/* The <pre> tag is now directly in the JSX, no need for getElementById */}
+          <pre className="center" id="d"></pre>
+        </div>
+        <div className="hero-content">
+          <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+            I'm a Victoria based <strong className="text-stone-100">Full Stack Software Engineer</strong>, currently working
+            at <strong className="text-stone-100">Instant Domains</strong> helping build a modern, mobile-first, domain
+            registrar and site builder.
+          </p>
+          <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
+            In my free time time, you can catch me training in <strong className="text-stone-100">Muay Thai</strong>,
+            plucking my <strong className="text-stone-100">banjo</strong>, or exploring beautiful{' '}
+            <strong className="text-stone-100">Vancouver Island</strong>.
+          </p>
+          <a href="/assets/resume.pdf" className="btn-primary">Resume</a>
+          <a href="#contact" className="btn-secondary">Contact</a>
+        </div>
+      </div>
     </>
   ),
   actions: [
@@ -98,6 +113,9 @@ export const heroData: Hero = {
     },
   ],
 };
+
+
+
 
 /**
  * About section
