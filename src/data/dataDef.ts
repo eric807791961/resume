@@ -105,6 +105,7 @@ export interface Testimonial {
   image?: string;
   name: string;
   text: string;
+  url?: string;
 }
 
 /**

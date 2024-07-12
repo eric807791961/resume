@@ -47,6 +47,9 @@ const useDonutAnimation = () => {
 
     const intervalId = setInterval(asciiframe, 50);
 
+    // Add CSS to make the text white
+    pretag.style.color = 'white';
+
     return () => clearInterval(intervalId);
   }, []);
 };

@@ -1,11 +1,8 @@
 import {
   AcademicCapIcon,
   ArrowDownTrayIcon,
-  BuildingOffice2Icon,
   CalendarIcon,
   FlagIcon,
-  MapIcon,
-  SparklesIcon,
 } from '@heroicons/react/24/outline';
 
 import React from 'react';
@@ -17,15 +14,6 @@ import TwitterIcon from '../components/Icon/TwitterIcon';
 import heroImage from '../images/header-background.webp';
 import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
 import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
-import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
-import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
-import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
-import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
-import porfolioImage7 from '../images/portfolio/portfolio-7.jpg';
-import porfolioImage8 from '../images/portfolio/portfolio-8.jpg';
-import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
-import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
-import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
 import profilepic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
 
@@ -74,7 +62,7 @@ export type SectionId = (typeof SectionId)[keyof typeof SectionId];
  */
 export const heroData: Hero = {
   imageSrc: heroImage,
-  name: `I'm Tim Baker.`,
+  name: '',
   description: (
     <>
       <div className="container">
@@ -82,17 +70,11 @@ export const heroData: Hero = {
           {/* The <pre> tag is now directly in the JSX, no need for getElementById */}
           <pre className="center" id="d"></pre>
         </div>
-        <div className="hero-content">
-          <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-            I'm a Victoria based <strong className="text-stone-100">Full Stack Software Engineer</strong>, currently working
-            at <strong className="text-stone-100">Instant Domains</strong> helping build a modern, mobile-first, domain
-            registrar and site builder.
+        <div className="hero-content mt-8"> {/* Added margin-top class */}
+          <p className="text-4xl font-bold text-stone-100 sm:text-5xl lg:text-6xl">
+            Hi! I'm <strong className="text-stone-100">Eric Huang</strong>
           </p>
-          <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-            In my free time time, you can catch me training in <strong className="text-stone-100">Muay Thai</strong>,
-            plucking my <strong className="text-stone-100">banjo</strong>, or exploring beautiful{' '}
-            <strong className="text-stone-100">Vancouver Island</strong>.
-          </p>
+          
           <a href="/assets/resume.pdf" className="btn-primary">Resume</a>
           <a href="#contact" className="btn-secondary">Contact</a>
         </div>
@@ -117,21 +99,20 @@ export const heroData: Hero = {
 
 
 
+
+
 /**
  * About section
  */
 export const aboutData: About = {
   profileImageSrc: profilepic,
-  description: `Use this bio section as your way of describing yourself and saying what you do, what technologies you like
-  to use or feel most comfortable with, describing your personality, or whatever else you feel like throwing
-  in.`,
+  description: `I'm a dedicated Software Developer with a master's degree in Information Management. 
+  I specialize in data analysis and machine learning, with experience in various projects, including multimedia machine learning applications and real-time gesture detection. 
+  I'm eager to leverage my skills in software development to solve complex problems for businesses.`,
   aboutItems: [
-    {label: 'Location', text: 'Victoria, BC', Icon: MapIcon},
-    {label: 'Age', text: '29', Icon: CalendarIcon},
-    {label: 'Nationality', text: 'Canadian / Irish', Icon: FlagIcon},
-    {label: 'Interests', text: 'Motorcycles, Muay Thai, Banjos', Icon: SparklesIcon},
-    {label: 'Study', text: 'University of Victoria', Icon: AcademicCapIcon},
-    {label: 'Employment', text: 'Instant Domains, inc.', Icon: BuildingOffice2Icon},
+    {label: 'Age', text: '25', Icon: CalendarIcon},
+    {label: 'Nationality', text: 'Taiwanese', Icon: FlagIcon},
+    {label: 'Master Degree', text: 'National Yang Ming Chiao Tung University', Icon: AcademicCapIcon},
   ],
 };
 
@@ -147,63 +128,63 @@ export const skills: SkillGroup[] = [
         level: 10,
       },
       {
-        name: 'French',
-        level: 4,
+        name: 'Mandarin',
+        level: 10,
       },
       {
-        name: 'Spanish',
-        level: 3,
+        name: 'French',
+        level: 4,
       },
     ],
   },
   {
-    name: 'Frontend development',
+    name: 'Programming Languages',
     skills: [
       {
-        name: 'React',
+        name: 'Python',
         level: 9,
       },
       {
-        name: 'Typescript',
+        name: 'C++',
         level: 7,
       },
       {
-        name: 'GraphQL',
+        name: 'Java',
         level: 6,
       },
     ],
   },
   {
-    name: 'Backend development',
+    name: 'Front / Backend development',
     skills: [
       {
-        name: 'Node.js',
-        level: 8,
-      },
-      {
-        name: 'Rust',
-        level: 5,
-      },
-      {
         name: 'Golang',
-        level: 4,
+        level: 7,
+      },
+      {
+        name: 'Node.js',
+        level: 6,
+      },
+      {
+        name: 'React',
+        level: 6,
       },
     ],
   },
   {
-    name: 'Mobile development',
+    name: 'DevOps',
     skills: [
       {
-        name: 'React Native',
-        level: 9,
+        name: 'Git',
+        level: 8,
       },
       {
-        name: 'Flutter',
-        level: 4,
+        name: 'Kubernetes',
+        level: 7,
       },
       {
-        name: 'Swift',
-        level: 3,
+        name: 'Docker',
+        level: 7,
       },
     ],
   },
@@ -214,10 +195,10 @@ export const skills: SkillGroup[] = [
  */
 export const portfolioItems: PortfolioItem[] = [
   {
-    title: 'Project title 1',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage1,
+    title: 'Taipei Housing Price Prediction',
+    description: `Developed a two-layer Ensemble Learning model using CatBoost, XGBoost, KNN Regressor, Linear Regression, and Random Forest. The first layer consists of individual models, and their predictions feed into a second layer Linear Regression for the final prediction. Data cleaning, feature engineering, and model evaluations were conducted using data from the Ministry of the Interior's real estate transaction database for Taipei from Q2 2015 to Q2 2020.`,
+    url: 'https://github.com/eric807791961/Ensemble_Learning-Taipei_Housing_Price_Prediction',
+    image: porfolioImage1, // Ensure this image path is correct
   },
   {
     title: 'Project title 2',
@@ -225,60 +206,7 @@ export const portfolioItems: PortfolioItem[] = [
     url: 'https://reactresume.com',
     image: porfolioImage2,
   },
-  {
-    title: 'Project title 3',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage3,
-  },
-  {
-    title: 'Project title 4',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage4,
-  },
-  {
-    title: 'Project title 5',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage5,
-  },
-  {
-    title: 'Project title 6',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage6,
-  },
-  {
-    title: 'Project title 7',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage7,
-  },
-  {
-    title: 'Project title 8',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage8,
-  },
-  {
-    title: 'Project title 9',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage9,
-  },
-  {
-    title: 'Project title 10',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage10,
-  },
-  {
-    title: 'Project title 11',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
-    image: porfolioImage11,
-  },
+  
 ];
 
 /**
@@ -286,43 +214,76 @@ export const portfolioItems: PortfolioItem[] = [
  */
 export const education: TimelineItem[] = [
   {
-    date: 'April 2007',
-    location: 'Clown college',
-    title: 'Masters in Beer tasting',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
+    date: 'June 2024',
+    location: 'National Yang Ming Chiao Tung University',
+    title: 'Master of Science',
+    content: <p>During my master's degree, I have honed my expertise in Cloud Computing, Cybersecurity, and Programming and Software Development. 
+      My coursework has earned me my first badge for AWS Foundations, further solidifying my knowledge in cloud technologies. 
+      Additionally, I have built a strong foundation in programming and software development through advanced courses in data structures, object-oriented programming, and high-level algorithms.
+    </p>,
   },
   {
-    date: 'March 2003',
-    location: 'School of Business',
-    title: 'What did you study 101',
+    date: 'June 2021',
+    location: 'San Jose State University',
+    title: 'Master of Science',
     content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
   },
 ];
 
 export const experience: TimelineItem[] = [
   {
-    date: 'March 2010 - Present',
-    location: 'Awesome Development Company',
-    title: 'Senior UX Engineer',
+    date: 'July 2023 - August 2023',
+    location: 'Taiwan Semiconductor Manufacturing Company Limited, Taiwan',
+    title: 'Summer Intern',
     content: (
       <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+        Integrated cloud-native and serverless technologies, including NATS and CloudEvents, into Java architectures to enhance system interoperability and support DevOps objectives. 
+        Deployed open-source API management tools such as Events Catalog and Apicurio within Kubernetes CI/CD pipelines, 
+        thereby improving API versioning and fostering enhanced cross-team collaboration.
       </p>
     ),
   },
   {
-    date: 'March 2007 - February 2010',
-    location: 'Garage Startup Studio',
-    title: 'Junior bug fixer',
+    date: 'January 2023 - June 2023',
+    location: 'Industrial Technology Research Institute, Taiwan',
+    title: 'Intern',
     content: (
       <p>
-        Describe work, special projects, notable achievements, what technologies you have been working with, and
-        anything else that would be useful for an employer to know.
+        Conducted research on super-resolution imaging and 3D imaging using deep learning techniques. Integrated 
+        advanced imaging technologies into products and regularly presented model architectures and findings to 
+        team members.
+      </p>
+    ),
+  },
+  {
+    date: 'January 2021 - June 2021',
+    location: 'Google San Jose Downtown West Gateway Project, San Jose, USA',
+    title: 'Project Intern',
+    content: (
+      <p>
+        Led a team of 5 to design business activities for Google’s San Jose downtown redevelopment project. 
+        Conducted surveys and data analysis on 200 respondents to understand urban innovation needs. Implemented 
+        web scraping tools to gather data on local businesses and events, and used VBA in Google Sheets to convert 
+        addresses to geocoordinates for visualization in Tableau, identifying gaps between current activities and 
+        community expectations. Proposed alternative solutions to Google, which were adopted.
+      </p>
+    ),
+  },
+  {
+    date: 'July 2018 - August 2018',
+    location: 'European Innovation Academy, Turin, Italy',
+    title: 'Team Lead',
+    content: (
+      <p>
+        Led a 6-member team to develop an app providing real-time feedback on user gestures, representing the 
+        university at an innovation competition in Italy, advancing to the final stage. Responsible for business 
+        model development and market analysis, designed surveys and conducted in-depth interviews with target 
+        audiences. Analyzed collected data using SPSS and Tableau to optimize decision-making.
       </p>
     ),
   },
 ];
+
 
 /**
  * Testimonial section
@@ -331,14 +292,16 @@ export const testimonial: TestimonialSection = {
   imageSrc: testimonialImage,
   testimonials: [
     {
-      name: 'John Doe',
-      text: 'Use this as an opportunity to promote what it is like to work with you. High value testimonials include ones from current or past co-workers, managers, or from happy clients.',
+      name: 'Project 1',
+      text: 'This project focuses on leveraging Machine Learning to predict housing prices in Taipei City based on detailed property features. Initially, Exploratory Data Analysis (EDA) and feature engineering were applied to the raw dataset to ensure robust input for modeling. A sophisticated two-layer Ensemble Learning model was then developed, achieving an 80% accuracy rate. The first layer comprises individual models, including CatBoost, XGBoost, KNN Regressor, Linear Regression, and Random Forest. The predictions from these models are subsequently integrated into a second-layer Linear Regression to generate the final prediction. Comprehensive data cleaning, feature engineering, and model evaluations were performed using the real estate transaction data provided by the Ministry of the Interior for Taipei, covering the period from Q2 2015 to Q2 2020.',
       image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/169.jpg',
+      url: 'https://github.com/eric807791961/Ensemble_Learning-Taipei_Housing_Price_Prediction',
     },
     {
       name: 'Jane Doe',
       text: 'Here you should write some nice things that someone has said about you. Encourage them to be specific and include important details (notes about a project you were on together, impressive quality produced, etc).',
       image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/14.jpg',
+      
     },
     {
       name: 'Someone else',

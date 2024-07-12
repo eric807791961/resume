@@ -12,18 +12,19 @@ import Section from '../Layout/Section';
 const Portfolio: FC = memo(() => {
   return (
     <Section className="bg-neutral-800" sectionId={SectionId.Portfolio}>
-      <div className="flex flex-col gap-y-8">
-        <h2 className="self-center text-xl font-bold text-white">Check out some of my work</h2>
-        <div className=" w-full columns-2 md:columns-3 lg:columns-4">
+      <div className="flex flex-col items-center gap-y-8"> {/* Center items horizontally */}
+        <h2 className="text-xl font-bold text-white">Check out some of my work</h2>
+        <div className="w-full flex flex-col items-center"> {/* Center items horizontally */}
           {portfolioItems.map((item, index) => {
             const {title, image} = item;
             return (
-              <div className="pb-6" key={`${title}-${index}`}>
+              <div className="pb-6 w-full flex justify-center" key={`${title}-${index}`}> {/* Center items horizontally */}
                 <div
                   className={classNames(
-                    'relative h-max w-full overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl',
+                    'relative overflow-hidden rounded-lg shadow-lg shadow-black/30 lg:shadow-xl',
+                    'w-96' // Set a fixed width to center the image container
                   )}>
-                  <Image alt={title} className="h-full w-full" placeholder="blur" src={image} />
+                  <Image alt={title} className="object-cover h-full w-full" placeholder="blur" src={image} />
                   <ItemOverlay item={item} />
                 </div>
               </div>
@@ -64,7 +65,7 @@ const ItemOverlay: FC<{item: PortfolioItem}> = memo(({item: {url, title, descrip
   return (
     <a
       className={classNames(
-        'absolute inset-0 h-full w-full  bg-gray-900 transition-all duration-300',
+        'absolute inset-0 h-full w-full bg-gray-900 transition-all duration-300',
         {'opacity-0 hover:opacity-80': !mobile},
         showOverlay ? 'opacity-80' : 'opacity-0',
       )}
