@@ -1,11 +1,6 @@
-import {
-  AcademicCapIcon,
-  ArrowDownTrayIcon,
-  CalendarIcon,
-  FlagIcon,
-} from '@heroicons/react/24/outline';
-
+import {AcademicCapIcon, ArrowDownTrayIcon, CalendarIcon, FlagIcon} from '@heroicons/react/24/outline';
 import React from 'react';
+
 import GithubIcon from '../components/Icon/GithubIcon';
 import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
@@ -16,8 +11,6 @@ import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
 import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
 import profilepic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
-
-
 import {
   About,
   ContactSection,
@@ -55,8 +48,6 @@ export const SectionId = {
 
 export type SectionId = (typeof SectionId)[keyof typeof SectionId];
 
-
-
 /**
  * Hero section
  */
@@ -70,13 +61,18 @@ export const heroData: Hero = {
           {/* The <pre> tag is now directly in the JSX, no need for getElementById */}
           <pre className="center" id="d"></pre>
         </div>
-        <div className="hero-content mt-8"> {/* Added margin-top class */}
+        <div className="hero-content mt-8">
+          {' '}
+          {/* Added margin-top class */}
           <p className="text-4xl font-bold text-stone-100 sm:text-5xl lg:text-6xl">
             Hi! I'm <strong className="text-stone-100">Eric Huang</strong>
           </p>
-          
-          <a href="/assets/resume.pdf" className="btn-primary">Resume</a>
-          <a href="#contact" className="btn-secondary">Contact</a>
+          <a className="btn-primary" href="/assets/resume.pdf">
+            Resume
+          </a>
+          <a className="btn-secondary" href="#contact">
+            Contact
+          </a>
         </div>
       </div>
     </>
@@ -95,11 +91,6 @@ export const heroData: Hero = {
     },
   ],
 };
-
-
-
-
-
 
 /**
  * About section
@@ -206,7 +197,6 @@ export const portfolioItems: PortfolioItem[] = [
     url: 'https://reactresume.com',
     image: porfolioImage2,
   },
-  
 ];
 
 /**
@@ -217,10 +207,14 @@ export const education: TimelineItem[] = [
     date: 'June 2024',
     location: 'National Yang Ming Chiao Tung University',
     title: 'Master of Science',
-    content: <p>During my master's degree, I have honed my expertise in Cloud Computing, Cybersecurity, and Programming and Software Development. 
-      My coursework has earned me my first badge for AWS Foundations, further solidifying my knowledge in cloud technologies. 
-      Additionally, I have built a strong foundation in programming and software development through advanced courses in data structures, object-oriented programming, and high-level algorithms.
-    </p>,
+    content: (
+      <p>
+        During my master's degree, I have honed my expertise in Cloud Computing, Cybersecurity, and Programming and
+        Software Development. My coursework has earned me my first badge for AWS Foundations, further solidifying my
+        knowledge in cloud technologies. Additionally, I have built a strong foundation in programming and software
+        development through advanced courses in data structures, object-oriented programming, and high-level algorithms.
+      </p>
+    ),
   },
   {
     date: 'June 2021',
@@ -237,9 +231,10 @@ export const experience: TimelineItem[] = [
     title: 'Summer Intern',
     content: (
       <p>
-        Integrated cloud-native and serverless technologies, including NATS and CloudEvents, into Java architectures to enhance system interoperability and support DevOps objectives. 
-        Deployed open-source API management tools such as Events Catalog and Apicurio within Kubernetes CI/CD pipelines, 
-        thereby improving API versioning and fostering enhanced cross-team collaboration.
+        Integrated cloud-native and serverless technologies, including NATS and CloudEvents, into Java architectures to
+        enhance system interoperability and support DevOps objectives. Deployed open-source API management tools such as
+        Events Catalog and Apicurio within Kubernetes CI/CD pipelines, thereby improving API versioning and fostering
+        enhanced cross-team collaboration.
       </p>
     ),
   },
@@ -249,9 +244,9 @@ export const experience: TimelineItem[] = [
     title: 'Intern',
     content: (
       <p>
-        Conducted research on super-resolution imaging and 3D imaging using deep learning techniques. Integrated 
-        advanced imaging technologies into products and regularly presented model architectures and findings to 
-        team members.
+        Conducted research on super-resolution imaging and 3D imaging using deep learning techniques. Integrated
+        advanced imaging technologies into products and regularly presented model architectures and findings to team
+        members.
       </p>
     ),
   },
@@ -261,11 +256,11 @@ export const experience: TimelineItem[] = [
     title: 'Project Intern',
     content: (
       <p>
-        Led a team of 5 to design business activities for Google’s San Jose downtown redevelopment project. 
-        Conducted surveys and data analysis on 200 respondents to understand urban innovation needs. Implemented 
-        web scraping tools to gather data on local businesses and events, and used VBA in Google Sheets to convert 
-        addresses to geocoordinates for visualization in Tableau, identifying gaps between current activities and 
-        community expectations. Proposed alternative solutions to Google, which were adopted.
+        Led a team of 5 to design business activities for Google’s San Jose downtown redevelopment project. Conducted
+        surveys and data analysis on 200 respondents to understand urban innovation needs. Implemented web scraping
+        tools to gather data on local businesses and events, and used VBA in Google Sheets to convert addresses to
+        geocoordinates for visualization in Tableau, identifying gaps between current activities and community
+        expectations. Proposed alternative solutions to Google, which were adopted.
       </p>
     ),
   },
@@ -275,15 +270,14 @@ export const experience: TimelineItem[] = [
     title: 'Team Lead',
     content: (
       <p>
-        Led a 6-member team to develop an app providing real-time feedback on user gestures, representing the 
-        university at an innovation competition in Italy, advancing to the final stage. Responsible for business 
-        model development and market analysis, designed surveys and conducted in-depth interviews with target 
-        audiences. Analyzed collected data using SPSS and Tableau to optimize decision-making.
+        Led a 6-member team to develop an app providing real-time feedback on user gestures, representing the university
+        at an innovation competition in Italy, advancing to the final stage. Responsible for business model development
+        and market analysis, designed surveys and conducted in-depth interviews with target audiences. Analyzed
+        collected data using SPSS and Tableau to optimize decision-making.
       </p>
     ),
   },
 ];
-
 
 /**
  * Testimonial section
@@ -301,7 +295,6 @@ export const testimonial: TestimonialSection = {
       name: 'Jane Doe',
       text: 'Here you should write some nice things that someone has said about you. Encourage them to be specific and include important details (notes about a project you were on together, impressive quality produced, etc).',
       image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/14.jpg',
-      
     },
     {
       name: 'Someone else',

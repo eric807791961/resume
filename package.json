@@ -1,5 +1,6 @@
 {
   "name": "react-resume-template",
+  "homepage": "https://github.com/eric807791961/resume.git",
   "version": "2.0.0",
   "private": true,
   "scripts": {
@@ -7,9 +8,11 @@
     "clean": "rm -rf build-tsc .next",
     "compile": "yarn run -T tsc --build --verbose",
     "dev": "yarn compile && yarn next dev",
-    "lint": "yarn run -T prettier --write './src/**/*.{js,jsx,json,ts,tsx}' && eslint './src/**/*.{js,jsx,ts,tsx}' --fix --max-warnings=0",
+    "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\" --fix --max-warnings=0",
     "start": "yarn next start",
-    "sitemap": "yarn next-sitemap"
+    "sitemap": "yarn next-sitemap",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.16",
@@ -45,6 +48,7 @@
     "eslint-plugin-react-native": "^4.0.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "gh-pages": "^6.1.1",
     "postcss": "^8.4.27",
     "postcss-preset-env": "^9.1.0",
     "prettier": "^3.0.0",
