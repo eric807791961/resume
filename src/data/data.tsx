@@ -1,14 +1,10 @@
 import {AcademicCapIcon, ArrowDownTrayIcon, CalendarIcon, FlagIcon} from '@heroicons/react/24/outline';
 import React from 'react';
-
 import GithubIcon from '../components/Icon/GithubIcon';
-import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
-import TwitterIcon from '../components/Icon/TwitterIcon';
 import heroImage from '../images/header-background.webp';
 import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
-import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
+import porfolioImage2 from '../images/portfolio/maze.png';
 import profilepic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
 import {
@@ -67,7 +63,7 @@ export const heroData: Hero = {
           <p className="text-4xl font-bold text-stone-100 sm:text-5xl lg:text-6xl">
             Hi! I'm <strong className="text-stone-100">Eric Huang</strong>
           </p>
-          <a className="btn-primary" href="/assets/resume.pdf">
+          <a className="btn-primary" href="/assets/eric_huang_resume.pdf">
             Resume
           </a>
           <a className="btn-secondary" href="#contact">
@@ -79,7 +75,7 @@ export const heroData: Hero = {
   ),
   actions: [
     {
-      href: '/assets/resume.pdf',
+      href: "./assets/eric_huang_resume.pdf",
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,
@@ -192,9 +188,9 @@ export const portfolioItems: PortfolioItem[] = [
     image: porfolioImage1, // Ensure this image path is correct
   },
   {
-    title: 'Project title 2',
-    description: 'Give a short description of your project here.',
-    url: 'https://reactresume.com',
+    title: 'Traversal Visualization',
+    description: 'A webpage that visualize Depth First Search , Breadth First Search, and Shortest Path traversal through a Maze',
+    url: 'https://eric807791961.github.io/maze-traversal/',
     image: porfolioImage2,
   },
 ];
@@ -282,25 +278,11 @@ export const experience: TimelineItem[] = [
 /**
  * Testimonial section
  */
+// 
 export const testimonial: TestimonialSection = {
   imageSrc: testimonialImage,
   testimonials: [
-    {
-      name: 'Project 1',
-      text: 'This project focuses on leveraging Machine Learning to predict housing prices in Taipei City based on detailed property features. Initially, Exploratory Data Analysis (EDA) and feature engineering were applied to the raw dataset to ensure robust input for modeling. A sophisticated two-layer Ensemble Learning model was then developed, achieving an 80% accuracy rate. The first layer comprises individual models, including CatBoost, XGBoost, KNN Regressor, Linear Regression, and Random Forest. The predictions from these models are subsequently integrated into a second-layer Linear Regression to generate the final prediction. Comprehensive data cleaning, feature engineering, and model evaluations were performed using the real estate transaction data provided by the Ministry of the Interior for Taipei, covering the period from Q2 2015 to Q2 2020.',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/169.jpg',
-      url: 'https://github.com/eric807791961/Ensemble_Learning-Taipei_Housing_Price_Prediction',
-    },
-    {
-      name: 'Jane Doe',
-      text: 'Here you should write some nice things that someone has said about you. Encourage them to be specific and include important details (notes about a project you were on together, impressive quality produced, etc).',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/14.jpg',
-    },
-    {
-      name: 'Someone else',
-      text: 'Add several of these, and keep them as fresh as possible, but be sure to focus on quality testimonials with strong highlights of your skills/work ethic.',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/69.jpg',
-    },
+    
   ],
 };
 
@@ -310,27 +292,15 @@ export const testimonial: TestimonialSection = {
 
 export const contact: ContactSection = {
   headerText: 'Get in touch.',
-  description: 'Here is a good spot for a message to your readers to let them know how best to reach out to you.',
   items: [
     {
       type: ContactType.Email,
-      text: 'reachout@timbaker.me',
-      href: 'mailto:reachout@timbaker.me',
-    },
-    {
-      type: ContactType.Location,
-      text: 'Victoria BC, Canada',
-      href: 'https://www.google.ca/maps/place/Victoria,+BC/@48.4262362,-123.376775,14z',
-    },
-    {
-      type: ContactType.Instagram,
-      text: '@tbakerx',
-      href: 'https://www.instagram.com/tbakerx/',
+      text: 'erichuang8077@gmail.com',
     },
     {
       type: ContactType.Github,
-      text: 'tbakerx',
-      href: 'https://github.com/tbakerx',
+      text: 'Eric Huang',
+      href: 'https://github.com/eric807791961',
     },
   ],
 };
@@ -339,9 +309,6 @@ export const contact: ContactSection = {
  * Social items
  */
 export const socialLinks: Social[] = [
-  {label: 'Github', Icon: GithubIcon, href: 'https://github.com/tbakerx'},
-  {label: 'Stack Overflow', Icon: StackOverflowIcon, href: 'https://stackoverflow.com/users/8553186/tim-baker'},
-  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/timbakerx/'},
-  {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/reactresume/'},
-  {label: 'Twitter', Icon: TwitterIcon, href: 'https://twitter.com/TimBakerx'},
+  {label: 'Github', Icon: GithubIcon, href: 'https://github.com/eric807791961'},
+  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/huang-eric-6297842b6/'},
 ];

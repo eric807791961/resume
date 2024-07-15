@@ -102,10 +102,11 @@ export interface TestimonialSection {
 }
 
 export interface Testimonial {
-  image?: string;
+  image: string;
   name: string;
-  text: string;
   url?: string;
+  description: string;
+  summary: string;
 }
 
 /**
@@ -113,7 +114,7 @@ export interface Testimonial {
  */
 export interface ContactSection {
   headerText?: string;
-  description: string;
+  description?: string;
   items: ContactItem[];
 }
 

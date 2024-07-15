@@ -1,12 +1,10 @@
 import classNames from 'classnames';
-import {FC, memo, UIEventHandler, useCallback, useEffect, useMemo, useRef, useState} from 'react';
-
-import {isApple, isMobile} from '../../config';
-import {SectionId, testimonial} from '../../data/data';
-import {Testimonial} from '../../data/dataDef';
+import { FC, memo, UIEventHandler, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { isApple, isMobile } from '../../config';
+import { SectionId, testimonial } from '../../data/data';
+import { Testimonial as TestimonialType } from '../../data/dataDef';
 import useInterval from '../../hooks/useInterval';
 import useWindow from '../../hooks/useWindow';
-import QuoteIcon from '../Icon/QuoteIcon';
 import Section from '../Layout/Section';
 
 const Testimonials: FC = memo(() => {
@@ -17,9 +15,8 @@ const Testimonials: FC = memo(() => {
   const itemWidth = useRef(0);
   const scrollContainer = useRef<HTMLDivElement>(null);
 
-  const {width} = useWindow();
-
-  const {imageSrc, testimonials} = testimonial;
+  const { width } = useWindow();
+  const { imageSrc, testimonials } = testimonial;
 
   const resolveSrc = useMemo(() => {
     if (!imageSrc) return undefined;
@@ -31,10 +28,12 @@ const Testimonials: FC = memo(() => {
     setParallaxEnabled(!(isMobile && isApple));
   }, []);
 
+  // Update item width based on container width
   useEffect(() => {
     itemWidth.current = scrollContainer.current ? scrollContainer.current.offsetWidth : 0;
   }, [width]);
 
+  // Update active index based on scroll position
   useEffect(() => {
     if (scrollContainer.current) {
       const newIndex = Math.round(scrollContainer.current.scrollLeft / itemWidth.current);
@@ -42,14 +41,12 @@ const Testimonials: FC = memo(() => {
     }
   }, [itemWidth, scrollValue]);
 
-  const setTestimonial = useCallback(
-    (index: number) => () => {
-      if (scrollContainer !== null && scrollContainer.current !== null) {
-        scrollContainer.current.scrollLeft = itemWidth.current * index;
-      }
-    },
-    [],
-  );
+  const setTestimonial = useCallback((index: number) => () => {
+    if (scrollContainer.current) {
+      scrollContainer.current.scrollLeft = itemWidth.current * index;
+    }
+  }, []);
+
   const next = useCallback(() => {
     if (activeIndex + 1 === testimonials.length) {
       setTestimonial(0)();
@@ -62,7 +59,7 @@ const Testimonials: FC = memo(() => {
     setScrollValue(event.currentTarget.scrollLeft);
   }, []);
 
-  useInterval(next, 1000000);
+  useInterval(next, 5000);
 
   // If no testimonials, don't render the section
   if (!testimonials.length) {
@@ -75,9 +72,9 @@ const Testimonials: FC = memo(() => {
         className={classNames(
           'flex w-full items-center justify-center bg-cover bg-center px-4 py-16 md:py-24 lg:px-8',
           parallaxEnabled && 'bg-fixed',
-          {'bg-neutral-700': !imageSrc},
+          { 'bg-neutral-700': !imageSrc },
         )}
-        style={imageSrc ? {backgroundImage: `url(${resolveSrc}`} : undefined}>
+        style={imageSrc ? { backgroundImage: `url(${resolveSrc})` } : undefined}>
         <div className="z-10 w-full max-w-screen-xl px-4 lg:px-0">
           <div className="flex flex-col items-center gap-y-6 rounded-xl bg-gray-800/60 p-6 shadow-lg">
             <div
@@ -87,7 +84,11 @@ const Testimonials: FC = memo(() => {
               {testimonials.map((testimonial, index) => {
                 const isActive = index === activeIndex;
                 return (
-                  <Testimonial isActive={isActive} key={`${testimonial.name}-${index}`} testimonial={testimonial} />
+                  <Testimonial
+                    isActive={isActive}
+                    key={`${testimonial.name}-${index}`}
+                    testimonial={testimonial}
+                  />
                 );
               })}
             </div>
@@ -113,27 +114,49 @@ const Testimonials: FC = memo(() => {
   );
 });
 
-const Testimonial: FC<{testimonial: Testimonial; isActive: boolean}> = memo(
-  ({testimonial: {text, name, image, url}, isActive}) => (
-    <div
-      className={classNames(
-        'flex w-full shrink-0 snap-start snap-always flex-col items-start gap-y-4 p-2 transition-opacity duration-1000 sm:flex-row sm:gap-x-6',
-        isActive ? 'opacity-100' : 'opacity-0',
-      )}>
-      {image ? (
-        <div className="relative h-40 w-40">
-          <img className="h-full w-full rounded-full" src={image} />
-        </div>
-      ) : (
-        <QuoteIcon className="h-5 w-5 shrink-0 text-white sm:h-8 sm:w-8" />
-      )}
-      <div className="flex flex-col gap-y-4 w-full">
-        <p className="text-xs italic text-white sm:text-sm md:text-base lg:text-lg w-full">{text}</p>
-        <p className="text-xs italic text-white sm:text-sm md:text-base lg:text-lg w-full">-- {name}</p>
-        <p className="text-xs italic text-white sm:text-sm md:text-base lg:text-lg w-full">-- {url}</p>
-      </div>
-    </div>
-  ),
-);
 
+const Testimonial: FC<{ testimonial: TestimonialType; isActive: boolean }> = memo(
+  ({ testimonial: { image, url, summary }, isActive }) => {
+    const isMobile = false; // Assuming you have a way to determine this
+
+    return (
+      <div
+        className={classNames(
+          'relative w-full h-full transition-opacity duration-1000',
+          isActive ? 'opacity-100' : 'opacity-0',
+        )}
+        style={{
+          width: '80vw', // Fixed width relative to viewport width
+          height: '50vh', // Fixed height relative to viewport height
+        }}
+      >
+        <div
+          className="relative h-full w-full bg-cover bg-center transition-opacity duration-300"
+          style={{
+            backgroundImage: `url(${image})`,
+          }}
+        >
+          <a
+            className={classNames(
+              'absolute inset-0 h-full w-full bg-gray-900 transition-all duration-300',
+              { 'opacity-0 hover:opacity-80': !isMobile },
+              'opacity-0',
+            )}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="relative h-full w-full p-4">
+              <div className="flex h-full w-full flex-col gap-y-2 items-center justify-center">
+                <p className="text-xs italic text-white opacity-0 hover:opacity-100 sm:text-sm md:text-base lg:text-lg">
+                  {summary}
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    );
+  },
+);
 export default Testimonials;
