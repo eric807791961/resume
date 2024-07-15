@@ -1,10 +1,11 @@
 import {AcademicCapIcon, ArrowDownTrayIcon, CalendarIcon, FlagIcon} from '@heroicons/react/24/outline';
 import React from 'react';
+
 import GithubIcon from '../components/Icon/GithubIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
 import heroImage from '../images/header-background.webp';
-import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
 import porfolioImage2 from '../images/portfolio/maze.png';
+import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
 import profilepic from '../images/profilepic.jpg';
 import testimonialImage from '../images/testimonial.webp';
 import {
@@ -63,7 +64,7 @@ export const heroData: Hero = {
           <p className="text-4xl font-bold text-stone-100 sm:text-5xl lg:text-6xl">
             Hi! I'm <strong className="text-stone-100">Eric Huang</strong>
           </p>
-          <a className="btn-primary" href="/assets/eric_huang_resume.pdf">
+          <a className="btn-primary" href="/assets/Eric_Huang_Resume.pdf">
             Resume
           </a>
           <a className="btn-secondary" href="#contact">
@@ -75,7 +76,7 @@ export const heroData: Hero = {
   ),
   actions: [
     {
-      href: "./assets/eric_huang_resume.pdf",
+      href: "./assets/Eric_Huang_Resume.pdf",
       text: 'Resume',
       primary: true,
       Icon: ArrowDownTrayIcon,

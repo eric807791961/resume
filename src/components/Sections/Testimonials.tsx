@@ -1,8 +1,9 @@
 import classNames from 'classnames';
-import { FC, memo, UIEventHandler, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { isApple, isMobile } from '../../config';
-import { SectionId, testimonial } from '../../data/data';
-import { Testimonial as TestimonialType } from '../../data/dataDef';
+import {FC, memo, UIEventHandler, useCallback, useEffect, useMemo, useRef, useState} from 'react';
+
+import {isApple, isMobile} from '../../config';
+import {SectionId, testimonial} from '../../data/data';
+import {Testimonial as TestimonialType} from '../../data/dataDef';
 import useInterval from '../../hooks/useInterval';
 import useWindow from '../../hooks/useWindow';
 import Section from '../Layout/Section';
@@ -15,8 +16,8 @@ const Testimonials: FC = memo(() => {
   const itemWidth = useRef(0);
   const scrollContainer = useRef<HTMLDivElement>(null);
 
-  const { width } = useWindow();
-  const { imageSrc, testimonials } = testimonial;
+  const {width} = useWindow();
+  const {imageSrc, testimonials} = testimonial;
 
   const resolveSrc = useMemo(() => {
     if (!imageSrc) return undefined;
@@ -72,9 +73,9 @@ const Testimonials: FC = memo(() => {
         className={classNames(
           'flex w-full items-center justify-center bg-cover bg-center px-4 py-16 md:py-24 lg:px-8',
           parallaxEnabled && 'bg-fixed',
-          { 'bg-neutral-700': !imageSrc },
+          {'bg-neutral-700': !imageSrc},
         )}
-        style={imageSrc ? { backgroundImage: `url(${resolveSrc})` } : undefined}>
+        style={imageSrc ? {backgroundImage: `url(${resolveSrc})`} : undefined}>
         <div className="z-10 w-full max-w-screen-xl px-4 lg:px-0">
           <div className="flex flex-col items-center gap-y-6 rounded-xl bg-gray-800/60 p-6 shadow-lg">
             <div
@@ -116,7 +117,7 @@ const Testimonials: FC = memo(() => {
 
 
 const Testimonial: FC<{ testimonial: TestimonialType; isActive: boolean }> = memo(
-  ({ testimonial: { image, url, summary }, isActive }) => {
+  ({testimonial: {image, url, summary}, isActive}) => {
     const isMobile = false; // Assuming you have a way to determine this
 
     return (
@@ -139,12 +140,12 @@ const Testimonial: FC<{ testimonial: TestimonialType; isActive: boolean }> = mem
           <a
             className={classNames(
               'absolute inset-0 h-full w-full bg-gray-900 transition-all duration-300',
-              { 'opacity-0 hover:opacity-80': !isMobile },
+              {'opacity-0 hover:opacity-80': !isMobile},
               'opacity-0',
             )}
             href={url}
-            target="_blank"
             rel="noopener noreferrer"
+            target="_blank"
           >
             <div className="relative h-full w-full p-4">
               <div className="flex h-full w-full flex-col gap-y-2 items-center justify-center">

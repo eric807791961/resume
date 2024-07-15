@@ -1,5 +1,5 @@
+import {NextApiRequest, NextApiResponse} from 'next';
 import nodemailer from 'nodemailer';
-import { NextApiRequest, NextApiResponse } from 'next';
 
 const transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === 'POST') {
-    const { name, email, message } = req.body;
+    const {name, email, message} = req.body;
 
     const mailOptions = {
       from: email,
@@ -22,12 +22,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     try {
       await transporter.sendMail(mailOptions);
-      res.status(200).json({ success: true });
+      res.status(200).json({success: true});
     } catch (error) {
       console.error('Error sending email:', error);
-      res.status(500).json({ error: 'Failed to send email' });
+      res.status(500).json({error: 'Failed to send email'});
     }
   } else {
-    res.status(405).json({ error: 'Method not allowed' });
+    res.status(405).json({error: 'Method not allowed'});
   }
 };
