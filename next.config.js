@@ -3,7 +3,7 @@
 // https://github.com/vercel/next.js/blob/master/packages/next/next-server/server/config.ts
 const nextConfig = {
   // basePath: "/resume",
-  output: "export",
+  // output: "export",
   webpack: config => {
     
     const oneOfRule = config.module.rules.find(rule => rule.oneOf);
