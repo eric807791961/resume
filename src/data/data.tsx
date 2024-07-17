@@ -216,9 +216,19 @@ export const education: TimelineItem[] = [
   {
     date: 'June 2021',
     location: 'San Jose State University',
-    title: 'Master of Science',
-    content: <p>Describe your experience at school, what you learned, what useful skills you have acquired etc.</p>,
-  },
+    title: 'Bachelor of Business Administration – Business Analytics',
+    content: (
+      <p>
+        Graduated with a GPA of 3.8, recognized as an honor's graduate. Focused on statistical and data analysis, 
+        developing strong analytical skills. Proficient in tools such as SPSS, Tableau, R, and Python. Participated 
+        in the Google San Jose Downtown West Gateway Project and the European Innovation Academy (EIA), applying 
+        data analysis and project management skills to real-world challenges.
+      </p>
+    ),
+  }
+  
+  
+
 ];
 
 export const experience: TimelineItem[] = [
